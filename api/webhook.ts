@@ -11,12 +11,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   console.log('Alchemy payload:', JSON.stringify(payload, null, 2));
 
   try {
-    const hash = payload?.event?.transaction?.hash ?? 'нет данных';
-    const from = payload?.event?.transaction?.from ?? 'нет данных';
-    const to = payload?.event?.transaction?.to ?? 'нет данных';
-    const value = payload?.event?.transaction?.value ?? 'нет данных';
+    const activity = payload?.event?.activity?.[0];
+
+    const hash = activity?.hash ?? 'нет данных';
+    const from = activity?.fromAddress ?? 'нет данных';
+    const to = activity?.toAddress ?? 'нет данных';
+    const value = activity?.value ?? 'нет данных';
+    const asset = activity?.asset ?? 'нет данных';
 
     const msg = `💰 Движение по кошельку:
+Asset: ${asset}
 Hash: ${hash}
 From: ${from}
 To: ${to}
