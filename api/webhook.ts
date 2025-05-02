@@ -1,8 +1,9 @@
+import 'dotenv/config';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
-const TELEGRAM_BOT_TOKEN = '7597807364:AAEhAZ3hUbinByn94llIAXkQktJzMeqEr18';
-const TELEGRAM_CHAT_ID = '448675531';
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN!;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID!;
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).send('Method Not Allowed');
