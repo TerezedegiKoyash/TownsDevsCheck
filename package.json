@@ -1,0 +1,15 @@
+{
+    "name": "towns-webhook",
+    "version": "0.0.1",
+    "private": true,
+    "type": "module",
+    "dependencies": {
+      "axios": "^1.6.8"
+    },
+    "devDependencies": {
+      "@types/node": "^22.15.3",
+      "@vercel/node": "^5.1.15",
+      "typescript": "^5.8.3"
+    }
+  }
+  
